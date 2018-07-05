@@ -20,7 +20,6 @@ VPC_ID=$(aws cloudformation describe-stacks \
 SUBNETS=$(aws cloudformation describe-stacks \
     --stack-name $EKS_VPC_STACK_NAME \
     --query 'Stacks[0].Outputs[?OutputKey==`SubnetIds`].[OutputValue][0][0]')
-#    | sed -E 's/.(.*)./\1/')
 
 aws cloudformation create-stack \
     --stack-name $EKS_WORKER_STACK_NAME \

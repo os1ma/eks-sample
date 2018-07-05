@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 ENDPOINT_URL=`aws eks describe-cluster \
     --name $EKS_CLUSTER_NAME \
