@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 
 cd `dirname $0`
 
@@ -25,3 +25,4 @@ aws cloudformation wait stack-create-complete \
 ./create-cluster/set-kubectl.sh
 ./create-cluster/enable-worker.sh
 
+echo 'LAUNCH SUCCEEDED!!!'

@@ -1,4 +1,8 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
+
+cd `dirname $0`
+
+source set-env.sh
 
 aws cloudformation delete-stack \
     --stack-name $EKS_WORKER_STACK_NAME
@@ -33,3 +37,5 @@ aws iam detach-role-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSServicePolicy
 
 aws iam delete-role --role-name $EKS_ROLE_NAME
+
+echo 'CLEANUP SUCCEEDED!!!'
