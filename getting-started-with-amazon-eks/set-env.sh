@@ -1,6 +1,10 @@
 # aws cli setting
 export AWS_DEFAULT_REGION=us-west-2
 
+# worker setting
+export EKS_WORKER_INSTANCE_TYPE=t2.small
+export EKS_WORKER_AMI=ami-02415125ccd555295
+
 # aws resource name
 export EKS_WORKER_STACK_NAME=eks-worker-stack
 export EKS_CLUSTER_NAME=eks-cluster
