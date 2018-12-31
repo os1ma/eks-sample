@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # TODO Route53 + ACMを利用
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80,"HTTPS": 443}]'
+    #alb.ingress.kubernetes.io/certificate-arn: <ACM_CERT_ARN>
+  name: sample-app
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: sample-app
+              servicePort: 80
